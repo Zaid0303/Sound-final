@@ -23,7 +23,7 @@ if(isset($_POST['login'])){
 
             if($dbpass == $admin_pass){
                 echo "<script> 
-                alert('admin login successfull');
+                alert('Admin login successfull');
                 window.location.href = 'index.php'
                  </script>";
             }else{

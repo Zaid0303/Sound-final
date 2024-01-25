@@ -23,12 +23,12 @@ if(isset($_POST['add-admin'])){
 
         if($admin_result){
             echo "<script> 
-            alert('Registration successful');
+            alert('Admin Registration successful');
             window.location.href='profile-edit.php'
             </script>";
         }else{
             echo "<script> 
-            alert('Registration failed');
+            alert('Admin Registration failed');
             // window.location.href='profile-edit.php'
             </script>";
         }

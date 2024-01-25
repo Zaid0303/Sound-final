@@ -74,11 +74,90 @@ include("config.php");
                                             <?php echo $row['m_artist'] ?>
                                         </span>
                                         <div class="d-inline-flex p-2">
-                                            <a id="fav" data-id="<?php echo $row['m_id'] ?>"><i class="fa-regular fa-heart"
-                                                    style="font-size: 30px;"></i></a>
+                                            <?php
+                                            if (isset($_SESSION['user_id'])) {
+                                                // User is logged in, show wishlist button
+                                                echo '<a id="fav" data-id="' . $row['m_id'] . '">
+                                                        <button id="wishlistButton" name="fav">Add to Wishlist</button>
+                                                      </a>';
+                                            } else {
+                                                // User is not logged in, show a message or open login modal
+                                                echo '<button onclick="openModal()">Add to Wishlist</button>';
+                                            }
+                                            ?>
                                         </div>
 
-                    
+                                        <!-- Modal Form  -->
+                                        <div id="loginModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close" onclick="closeModal()">&times;</span>
+                                                <h3>Create A wishlist?</h3>
+                                                <p>Please Login must</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- wishlist css -->
+                                        <style>
+                                            button {
+                                                padding: 10px 20px;
+                                                font-size: 16px;
+                                                background-color: #FF0000;
+                                                color: white;
+                                                border: none;
+                                                border-radius: 5px;
+                                                cursor: pointer;
+                                            }
+
+                                            button:hover {
+                                                background-color: #DE1616;
+                                            }
+
+                                            /* Modal Styles */
+                                            .modal {
+                                                display: none;
+                                                position: fixed;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                background-color: rgba(0, 0, 0, 0.5);
+                                            }
+
+                                            .modal-content {
+                                                background-color: #fefefe;
+                                                margin: 10% auto;
+                                                padding: 20px;
+                                                border: 1px solid #888;
+                                                border-radius: 5px;
+                                                width: 50%;
+                                            }
+
+                                            .close {
+                                                color: #FF0000;
+                                                float: left;
+                                                font-size: 100px;
+                                                font-weight: bolder;
+                                            }
+
+                                            .close:hover,
+                                            .close:focus {
+                                                color: black;
+                                                text-decoration: none;
+                                                cursor: pointer;
+                                            }
+                                        </style>
+                                        <!-- wishlist css -->
+
+                                        <script>
+                                            function openModal() {
+                                                document.getElementById('loginModal').style.display = 'block';
+                                            }
+                                            function closeModal() {
+                                                document.getElementById('loginModal').style.display = 'none';
+                                            }
+                                        </script>
+                                        <!-- Modal Form end -->
+
 
                                         <script>
                                             $(document).ready(function () {
@@ -226,9 +305,9 @@ include("config.php");
                                         </div>
                                     </div>
                                     <div class="mt-5" id="review_content"></div>
-                                    </div>
+                                </div>
 
-                                    <div id="review_modal" class="modal" tabindex="-1" role="dialog">
+                                <div id="review_modal" class="modal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">

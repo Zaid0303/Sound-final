@@ -50,7 +50,6 @@ include("includes/topnav.php");
                         <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                            <li><a href="profile.php"><i class="las la-id-card-alt"></i>User Profile</a></li>
                            <li><a href="profile-edit.php"><i class="las la-edit"></i>User Edit</a></li>
-                           <li><a href="add-user.php"><i class="las la-plus-circle"></i>User Add</a></li>
                            <li><a href="user-list.php"><i class="las la-th-list"></i>User List</a></li>
                            <li><a href="user-reviews-ratings.php"><i class="las la-th-list"></i>Reviews & Ratings</a></li>
                         </ul>
