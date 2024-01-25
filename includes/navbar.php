@@ -40,7 +40,6 @@ session_start();
                                     <ul class="dropdown">
                                         <li><a href="profile.php">Profile</a></li>
                                         <li><a href="fav.php">WishList</a></li>
-                                        <li><a href="admin-sound/sign-in.php">Admin Login</a></li>
                                         <li><a href="logout.php">Logout</a></li>
                                     </ul>
                                 </li>
