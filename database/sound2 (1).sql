@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 03:15 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jan 25, 2024 at 11:41 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_img`) VALUES
 (1, 'Muhammad Zaid', 'zaid123aptech@gmail.com', '$2y$10$7zaQwNb5Z41xvtRUeVuG8uQSHp8NpVdVcsjeR44WAWOS3o6cdV2se', 'zaid.jpeg'),
-(2, 'Syed Murtaza', 'murtaza123aptech@gmail.com', '$2y$10$JY2a9YVt/gPwGQqLLqnM1OezLrnnj4Fhq/JKtqI.faJzfKXPJadD2', 'murtaza.jpeg');
+(2, 'Syed Murtaza', 'murtaza123aptech@gmail.com', '$2y$10$JY2a9YVt/gPwGQqLLqnM1OezLrnnj4Fhq/JKtqI.faJzfKXPJadD2', 'murtaza.jpeg'),
+(3, 'admin', 'admin@gmail.com', '$2y$10$zNOPai48uX6fAGJ4QlZtO.6zky3nvg7Z03AxljS/F3JDLLY2D1UW2', 'admin.jpeg');
 
 -- --------------------------------------------------------
 
@@ -70,8 +71,8 @@ INSERT INTO `categories` (`c_id`, `c_genre`, `c_genre_img`, `c_year`, `c_artist`
 (8, 'Hip-Hop / Pap', 'Hip-Hop-Pop.jpg', '2018', 'Yo Yo Honey Singh', 'Honey singh2.jpg', 'Latest song', 'album.png', 1),
 (9, 'Rap', 'Rap.jpg', '2014', 'Arijit Singh', 'arijit sing.jpg', 'Trending Song', 'album.png', 1),
 (10, 'Indian Pop', 'Indian pop genre.jpg', '2022', 'Guri', 'guri artist.jpg', 'Summer Wave', 'album.png', 1),
-(11, 'Classical', 'Classical.jpg', '2017', 'Atif Aslam', 'Atif Aslam.jpg', 'Ter Liye', 'album.png', 1),
-(12, 'Hip Hop / Rap', 'Hip Hop-Rap.jpg', '2020', 'young stunner', 'young-stunners.jpg', 'Super Hit Song', 'album.png', 1);
+(12, 'Hip Hop / Rap', 'Hip Hop-Rap.jpg', '2020', 'young stunner', 'young-stunners.jpg', 'Super Hit Song', 'album.png', 1),
+(13, 'Classical', 'Classical.jpg', '2021', 'Atif Aslam', 'Atif Aslam.jpg', 'Latest song', 'album.png', 1);
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,8 @@ CREATE TABLE `review_table` (
 --
 
 INSERT INTO `review_table` (`review_id`, `user_name`, `user_rating`, `user_review`, `datetime`) VALUES
-(0, 'Zaid', 5, 'gg', 1706041510);
+(0, 'Zaid', 5, 'gg', 1706041510),
+(0, 'zaid', 5, 'Good Song', 1706130034);
 
 -- --------------------------------------------------------
 
@@ -186,7 +188,8 @@ INSERT INTO `users` (`u_id`, `u_name`, `u_address`, `u_phone`, `u_email`, `u_pas
 (8, 'Aneeq', 'Nazimabad no 4, Karachi', 312677543, 'Aneed@gmail.com', '222', 1),
 (9, 'Abdul Hadi', '2B/31 near  Lucky One Mall', 345678900, 'hadi@gmail.com', '$2y$10$CODcAqak8bh9Rfa3XZXiYOMXEJ7LFRH/k9ns8i8YEPQOYXb3KxtKO', 1),
 (10, 'Muhammad Zaid', '2B/31 Nazimabad no 2', 2147483647, 'zaid123@gmail.com', '$2y$10$Nb/7xJT7yosYNte5inHCd.LSltKHbGyR2jSN5jooLhCbNoZeNYdnu', 1),
-(11, 'ubaid', 'Nazimabad no 3, Karachi', 2147483647, 'ubaid@gmail.com', '$2y$10$L6QjkNcL/PsA53viGP50cOncjpHKGTvxpDti9WUYApKI9gQOzddDG', 1);
+(11, 'ubaid', 'Nazimabad no 3, Karachi', 2147483647, 'ubaid@gmail.com', '$2y$10$L6QjkNcL/PsA53viGP50cOncjpHKGTvxpDti9WUYApKI9gQOzddDG', 1),
+(12, 'Yash', 'Bharia Town, karachi', 233344555, 'yash@gmail.com', '$2y$10$rtV5ANLnpBMhT4HmCBTRUuT.Eq0PUm6AR7NqvabGtmUiCrLpbOulW', 1);
 
 -- --------------------------------------------------------
 
@@ -233,13 +236,6 @@ CREATE TABLE `wishlist` (
   `music_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `wishlist`
---
-
-INSERT INTO `wishlist` (`wishlist`, `user_id`, `music_id`) VALUES
-(1, 4, 16);
-
 -- --------------------------------------------------------
 
 --
@@ -251,13 +247,6 @@ CREATE TABLE `wishlist_video` (
   `user_id` int(11) NOT NULL,
   `video_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `wishlist_video`
---
-
-INSERT INTO `wishlist_video` (`wishlist`, `user_id`, `video_id`) VALUES
-(1, 4, 60);
 
 --
 -- Indexes for dumped tables
@@ -331,13 +320,13 @@ ALTER TABLE `wishlist_video`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `music`
@@ -361,7 +350,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `videos`
